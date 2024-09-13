@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8d8d8; /* Нежно розовый фон */
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+#displayed-image {
+    max-width: 100%;
+    max-height: 80%;
+    display: block;
+    animation: sizeAndRotate 4s forwards; /* Анимация изменения размера и вращения */
+}
+
+#close-button, #next-button {
+    position: absolute;
+    top: 20px;
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#close-button {
+    left: 20px;
+}
+
+#next-button {
+    left: 120px; /* Установите нужное значение, чтобы кнопка не перекрывалась с кнопкой Close */
+}
+
+#audio-container {
+    margin-top: 20px;
+}
+
+/* Анимация смены фона */
+@keyframes backgroundColorChange {
+    0% { background-color: #f8d8d8; }
+    25% { background-color: #ffb6c1; }
+    50% { background-color: #ff69b4; }
+    75% { background-color: #ff1493; }
+    100% { background-color: #f8d8d8; }
+}
+
+/* Анимация изменения размера и вращения */
+@keyframes sizeAndRotate {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.5); /* Уменьшение */
+    }
+    50% {
+        transform: scale(1.5); /* Увеличение */
+    }
+    100% {
+        transform: scale(1) rotate(360deg); /* Вращение на 360 градусов */
+    }
+}
